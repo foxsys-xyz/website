@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
 import Halo from 'vanta/dist/vanta.halo.min'
 
 const Home: NextPage = () => {
@@ -23,18 +24,16 @@ const Home: NextPage = () => {
           size: 1.20
         }))
       }
-      return () => {
-        if (vantaEffect) vantaEffect.destroy()
-      }
     }, [vantaEffect])
 
   return (
     <div className="font-mono text-white bg-black">
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" strategy="beforeInteractive"></Script>
+
       <Head>
         <title>foxsys-xyz // the next generation virtual airline management framework.</title>
         <meta name="description" content="introducing foxsys-xyz, the most advanced virtual management framework ever built." />
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
       </Head>
       
       <main>
